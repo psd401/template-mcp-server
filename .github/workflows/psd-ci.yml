@@ -14,15 +14,13 @@ jobs:
   # verification API (mcp-scan phones home to verify tool definitions). Until then
   # this stays a documented manual step — run it locally before every release:
   #
-  #   npm ci && uvx mcp-scan@latest .mcp.json
+  #   bun install && uvx mcp-scan@latest .mcp.json
   #
   # mcp-scan:
   #   runs-on: ubuntu-latest
   #   steps:
   #     - uses: actions/checkout@v4
-  #     - uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 22
+  #     - uses: oven-sh/setup-bun@v2
   #     - uses: astral-sh/setup-uv@v5
-  #     - run: npm ci
+  #     - run: bun install --frozen-lockfile
   #     - run: uvx mcp-scan@latest .mcp.json

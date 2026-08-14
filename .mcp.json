@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "template-mcp-server": {
-      "command": "npx",
+      "command": "bunx",
       "args": ["tsx", "src/stdio.ts"]
     }
   }

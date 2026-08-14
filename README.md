@@ -14,7 +14,7 @@ PSD401 template for TypeScript MCP servers, built to the district MCP standard (
 1. **Rename**: `package.json` name, `SERVER_INFO` in `src/server.ts`, every CHANGEME in `server.json`, `.mcp.json` key. Repo name ends in `-mcp`.
 2. **Set repo custom properties**: `tier` (default `c-experiment`), `owner`, `lifecycle: active`; add topics (`mcp-server`, …).
 3. **Review CLAUDE.md** and prune it to your server.
-4. **Verify green**: `npm install && npm test && npm run lint && npm run typecheck && npm run build`.
+4. **Verify green**: `bun install && bun run test && bun run lint && bun run typecheck && bun run build` (bun is the PSD JS runtime rule; `bun.lock` is committed).
 5. Replace the example items module with your real domain; keep the tool shape (pagination, response_format, annotations, teaching errors).
 6. Before any deployment: OAuth 2.1 resource-server auth or district gateway in front — never a bare network-exposed server.
 
@@ -36,10 +36,11 @@ Every write tool defaults to `dry_run: true` and returns exactly what *would* ch
 
 | Task | Command |
 |------|---------|
-| Dev (stdio) | `npm run dev` |
-| Serve (HTTP) | `npm run build && npm start` |
-| Test | `npm test` |
-| Lint / Typecheck | `npm run lint` / `npm run typecheck` |
+| Install | `bun install` |
+| Dev (stdio) | `bun run dev` |
+| Serve (HTTP) | `bun run build && bun run start` |
+| Test | `bun run test` |
+| Lint / Typecheck | `bun run lint` / `bun run typecheck` |
 | Security scan | `uvx mcp-scan@latest .mcp.json` (manual until enabled in CI) |
 
 ## Owner

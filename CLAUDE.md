@@ -10,13 +10,16 @@ Map, not manual. Change this file in the same PR that changes the convention.
 ## Commands (exact)
 
 ```bash
-npm run dev          # stdio dev server (what .mcp.json launches)
-npm run build        # tsc -> dist/
-npm start            # stateless streamable HTTP on :3000 (build first)
-npm test             # vitest run (CI gate; zero-test repos fail psd-ci)
-npm run lint         # eslint . — includes test-quality rules
-npm run typecheck    # tsc --noEmit
+bun install          # bun is the PSD JS package manager (bun.lock is committed)
+bun run dev          # stdio dev server (what .mcp.json launches)
+bun run build        # tsc -> dist/
+bun run start        # stateless streamable HTTP on :3000 (build first)
+bun run test         # vitest run (CI gate; zero-test repos fail psd-ci)
+bun run lint         # eslint . — includes test-quality rules
+bun run typecheck    # tsc --noEmit
 ```
+
+Always `bun run test` (the package script), never bare `bun test` (bun's own runner).
 
 ## Map
 
