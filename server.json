@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+  "name": "io.github.psd401/CHANGEME-mcp",
+  "description": "CHANGEME: one sentence - what this server does, what data it touches, who owns it",
+  "status": "active",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/PSD401/CHANGEME-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://CHANGEME.psd401.net/mcp"
+    }
+  ]
+}

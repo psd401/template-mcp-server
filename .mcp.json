@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "template-mcp-server": {
+      "command": "npx",
+      "args": ["tsx", "src/stdio.ts"]
+    }
+  }
+}

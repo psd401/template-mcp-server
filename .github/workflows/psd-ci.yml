@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  psd-ci:
+    uses: PSD401/.github/.github/workflows/reusable-psd-ci.yml@main
+    secrets: inherit
+
+  # TODO(mcp-scan): enable once the runner network policy allows Invariant Labs'
+  # verification API (mcp-scan phones home to verify tool definitions). Until then
+  # this stays a documented manual step — run it locally before every release:
+  #
+  #   npm ci && uvx mcp-scan@latest .mcp.json
+  #
+  # mcp-scan:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 22
+  #     - uses: astral-sh/setup-uv@v5
+  #     - run: npm ci
+  #     - run: uvx mcp-scan@latest .mcp.json
