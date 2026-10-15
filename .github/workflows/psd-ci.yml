@@ -8,7 +8,6 @@ on:
 jobs:
   psd-ci:
     uses: PSD401/.github/.github/workflows/reusable-psd-ci.yml@main
-    secrets: inherit
 
   # TODO(mcp-scan): enable once the runner network policy allows Invariant Labs'
   # verification API (mcp-scan phones home to verify tool definitions). Until then
