@@ -18,6 +18,7 @@ Always `bun run test` (the package script), never bare `bun test` (bun's own run
 
 ## Conventions (from 07-mcp.md)
 
+- Node 22+ (not recorded in `package.json`; there is no `engines` field). ESM only (`"type": "module"`).
 - `src/items.ts` is an example domain: replace the domain, keep the shape. All tools register in `buildServer()` in `src/server.ts`.
 - Tool names: `psd_<system>_<resource>_<verb>`. ≤ ~15 tools/server; workflow tools, not 1:1 API wrappers.
 - **Every tool declares `readOnlyHint`/`destructiveHint`** — gateways gate approval flows on them. Lying in an annotation is an incident.
