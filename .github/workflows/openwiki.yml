@@ -1,0 +1,23 @@
+name: OpenWiki Update
+on:
+  workflow_dispatch:
+  # No push trigger: since v1.2.1 the reusable skips push runs unless the
+  # caller passes run_on_push: true, so the Monday run rebuilds the wiki.
+  schedule:
+    - cron: "0 8 * * 1"
+jobs:
+  openwiki:
+    # A template repo builds no wiki of its own: GitHub copies every file into
+    # each repo made from it, and a copied openwiki/ would turn that repo's
+    # first build into an update of the template's wiki. In a repo made from
+    # this template the condition is true and the job runs.
+    if: ${{ !startsWith(github.repository, 'psd401/template-') }}
+    permissions:
+      contents: read # the reusable only reads with GITHUB_TOKEN; writes use the psd-automation App
+      pull-requests: read
+    uses: PSD401/.github/.github/workflows/reusable-openwiki.yml@78358a20608aa2f4de77e23f183c3ec7e1bbe795 # v1.12.0
+    with:
+      base_branch: main
+    secrets:
+      BEDROCK_API_KEY: ${{ secrets.BEDROCK_API_KEY }}
+      PSD_AUTOMATION_APP_PRIVATE_KEY: ${{ secrets.PSD_AUTOMATION_APP_PRIVATE_KEY }}
